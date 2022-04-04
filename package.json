@@ -1,0 +1,23 @@
+{
+  "name": "linkedin-integration-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leozabotto/linkedin-integration-api",
+  "author": "Leonardo Zabotto <leozabotto02@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "qs": "^6.10.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "nodemon": "^2.0.15"
+  }
+}
