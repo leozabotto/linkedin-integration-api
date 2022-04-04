@@ -5,8 +5,8 @@ const axios = require('axios');
 module.exports = {
 	async getUserInfo(req, res) {
 		try {
-			const { accessToken } = req.body;
-
+			const { accessToken } = req.query;
+			console.log(accessToken);
 			if (!accessToken) return res.status(400).send({ message: 'Access Token cannot be empty!' });
 
 			const response = await axios.get('https://api.linkedin.com/v2/me', {
@@ -21,6 +21,7 @@ module.exports = {
 
 			return res.status(200).json(userInfo);
 		} catch (err) {
+			console.log(err);
 			return res.status(400).json(err.response.data);
 		}
 	},

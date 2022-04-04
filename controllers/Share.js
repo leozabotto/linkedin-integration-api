@@ -11,6 +11,10 @@ module.exports = {
 			if (!message) return res.status(400).send({ message: 'Message cannot be empty!' });
 			if (!userUrn) return res.status(400).send({ message: 'User URN cannot be empty!' });
 
+			if (visibility !== 'PUBLIC' && visibility !== 'CONNECTIONS') {
+				return res.status(400).send({ message: 'Visibility only can be PUBLIC or CONNECTIONS!' });
+			}
+
 			const response = await axios.post('https://api.linkedin.com/v2/ugcPosts',
 				{
 					author: userUrn,
@@ -35,6 +39,7 @@ module.exports = {
 
 			return res.sendStatus(200).json(response.data);
 		} catch (err) {
+			console.log(err);
 			return res.status(400).json(err.response.data);
 		}
 	},

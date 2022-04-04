@@ -27,6 +27,7 @@ module.exports = {
 
 			return res.status(200).json({ access_token: response.data.access_token });
 		} catch (err) {
+			console.log(err);
 			return res.status(400).json(err.response.data);
 		}
 	},
